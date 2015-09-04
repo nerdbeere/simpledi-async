@@ -2,7 +2,7 @@
 
 ## API
 
-### `di.get(name)`;
+### `di.get(name)`
 
 #### Example:
 
@@ -10,14 +10,29 @@
 var myConfig = di.get('myConfig');
 ```
 
-### `di.get(name, callback)`;
+### `di.get(name, callback)`
 
 ```javascript
-di.get('myConfig', function(error, config) {
+di.get('myConfigFromCdn', function(error, config) {
   // do something with config
 });
 ```
 
-### `di.register(name, function)`;
+### `di.register(name, function)`
 
-### `di.register(name, function, dependencies)`;
+```javascript
+
+// Example: sync
+di.register('myConfig', function() {
+  return {
+    config: true
+  }
+});
+
+// Example: async
+di.register('myConfig', function(done) {
+  xhr('http//config.js', done)
+});
+```
+
+### `di.register(name, function, dependencies)`
