@@ -45,22 +45,22 @@ di.register('myConfig', function(done) {
 });
 ```
 
-### `di.register(name, function, dependencies)`
+### `di.register(name, dependencies, function)`
 
 #### Example:
 
 ```javascript
 
 // Example: sync
-di.register('myConfig', function(otherConfig) {
+di.register('myConfig', ['otherConfig'], function(otherConfig) {
   return {
     otherConfig: otherConfig
     config: true
   }
-}, ['otherConfig']);
+});
 
 // Example: async
-di.register('myConfig', function(cdnUrl, done) {
+di.register('myConfig', ['cdnUrl'], function(cdnUrl, done) {
   xhr(cdnUrl + '/config.js', done)
-}, ['cdnUrl']);
+});
 ```
