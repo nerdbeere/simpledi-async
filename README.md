@@ -4,6 +4,10 @@
 
 ### `di.get(name)`
 
+Synchronously resolves dependencies.
+
+**Warning:** There can't be any async dependencies in the chain. If an async dependency is detected it will throw an error.
+
 #### Example:
 
 ```javascript
@@ -11,6 +15,8 @@ var myConfig = di.get('myConfig');
 ```
 
 ### `di.get(name, callback)`
+
+Asynchronously resolves dependencies.
 
 #### Example:
 
