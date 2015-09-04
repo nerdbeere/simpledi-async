@@ -27,6 +27,7 @@ di.get('myConfigFromCdn', function(error, config) {
 ```
 
 ### `di.register(name, function)`
+### `di.registerAsync(name, function)`
 
 #### Example:
 
@@ -40,12 +41,13 @@ di.register('myConfig', function() {
 });
 
 // Example: async
-di.register('myConfig', function(done) {
+di.registerAsync('myConfig', function(done) {
   xhr('http//config.js', done)
 });
 ```
 
 ### `di.register(name, dependencies, function)`
+### `di.registerAsync(name, dependencies, function)`
 
 #### Example:
 
@@ -60,7 +62,7 @@ di.register('myConfig', ['otherConfig'], function(otherConfig) {
 });
 
 // Example: async
-di.register('myConfig', ['cdnUrl'], function(cdnUrl, done) {
+di.registerAsync('myConfig', ['cdnUrl'], function(cdnUrl, done) {
   xhr(cdnUrl + '/config.js', done)
 });
 ```
